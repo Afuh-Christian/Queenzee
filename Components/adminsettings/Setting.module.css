@@ -1,0 +1,20 @@
+.allsettings{
+    height: 650px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-size: 20px;
+}
+
+.allsettings > div {
+    margin-block: 20px;
+    margin-inline: 30px;
+}
+
+
+
+
+
+
+
+
+

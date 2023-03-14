@@ -1,0 +1,74 @@
+
+
+.body{
+    height: 680px;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+.body::-webkit-scrollbar{
+    display: none;
+}
+
+.section {
+   height: 660px;
+
+}
+
+ .section > .item {
+    height: auto;
+    width: 340px;
+    background-color: rgb(35, 14, 35);
+    font-size: 22px;
+    color: white;
+    border-radius: 30px;
+    margin-block: 11px;
+    font-family:  "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+ }
+
+ .section > .item > .img > img {
+    width: 100%;
+    height: 220px;
+    border-radius: 30px;
+}
+
+
+
+.section > .item > div > .price , .name  {
+    margin-inline: 10px;
+    margin-block: 2px;
+}
+
+.itemdescription{
+    padding: 3px;
+}
+
+.share{
+    float: right;
+    margin-top: 20px;
+    margin-right: 20px;
+    font-size: 17px;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-between; */
+}
+
+.btn > button {
+    width: 100px;
+    height: 35px;
+    margin-bottom: 20px;
+    font-size: 17px;
+    margin-inline: 10px;
+    border-radius: 30px;
+}
+
+.btn > button:hover{
+    background-color: rgb(172, 143, 172);
+    
+}
+
+

@@ -1,0 +1,40 @@
+
+
+.image{
+    height: 300px;
+    width: 100%;
+    background-color: rgb(34, 9, 34);
+}
+
+.image > img {
+    height: 100%;
+    width: 100%;
+}
+
+.form > div {
+    margin-block: 20px;
+    margin-left: 20px;
+}
+
+.form > div > input {
+    font-size: 20px;
+    border-radius: 10px;
+    height: 40px;
+    width: 300px;
+}
+
+.form > button {
+    font-size: 20px; 
+    border-radius: 10px;
+    float:right;
+    margin-right: 70px;
+    width: 70px
+}
+
+
+.div  >  button {
+    margin-top: 100px;
+    margin-left: 170px; 
+    font-size: 20px;
+    border-radius: 10px;
+}
