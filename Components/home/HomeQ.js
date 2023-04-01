@@ -4,17 +4,20 @@ import Router, { useRouter } from "next/router"
 import { useDispatch, useSelector } from "react-redux"
 import { AllCategories, fetchCategories, selectAllCategories, selectAllCategoryErrors, selectAllCategoryStatus } from "../../dataStore/CategorySlice/CategorySlice"
 import Category from "./Category"
-import classes from "./HomeQ.module.css"
+import c from "./HomeQ.module.css"
 import React, { useEffect, useState } from "react"
 import UpdateCategory from "./update/UpdateCategory"
 import { nanoid } from "@reduxjs/toolkit"
 import { currentLoggedinUser } from "../../dataStore/UserSlice/AuthSlice/AuthSlice"
+import Bottom from "../bottom/Bottom"
+import CreateCategory from "./create/CreateCategory"
 
 
 
 function HomeQ() {
     const currentUser = useSelector(currentLoggedinUser)
     // const data = useSelector(AllCategories)
+    const [openformcat, setFormCat] = useState(false)
 
    const router = useRouter() 
     
@@ -74,70 +77,119 @@ function HomeQ() {
 
 
     //.............Commands ...........................
-
+    const OnCreateFormCat = ()=>{
+        setFormCat(!openformcat)
+        
+    }
 
   return (
-    
-      <section className={classes.body_home}>
-         
-          <div className={classes.pic_cover}>     
-           
-              <img className={classes.pic} src="ziiface.jpg" alt=""/>
- </div>
+      <> <CreateCategory openform={openformcat} OnCreateForm={OnCreateFormCat}/>
+      
+      <section className={c.home}
+      style={{
+        "--backgroundColor": "rgb(35, 14, 35)",
+        "--navtextColor": "white",
+        "--Navtexthighlight": "rgb(121,118,118)",
+        "--btnbackgroundColor":"rgb(48,48,52)",
+        "--borderColor" : "rgba(56, 11, 56, 1)",
+        "--textFontFamily" : "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+        "--textsizeNormal": `${15}px`,
+        "--textsizeAverage": `${20}px`,
+        "--boxShadow":" 7px 7px 10px -6px rgba(9, 9, 9, 0.25)"
+    }}
+      >
+          <section className={c.hometop}
+              style={{
+                "--backgroundColor": "rgb(35, 14, 35)",
+                "--navtextColor": "white",
+                "--Navtexthighlight": "rgb(121,118,118)",
+                "--btnbackgroundColor":"rgb(48,48,52)",
+                "--borderColor" : "rgba(56, 11, 56, 1)",
+                "--textFontFamily" : "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                "--textsizeNormal": `${15}px`,
+                "--textsizeAverage": `${20}px`,
+                "--boxShadow":" 7px 7px 10px -6px rgba(9, 9, 9, 0.25)"
+            }}
+          >
 
-
-          <div className={classes.wrapper}>
-              
-              {QueryCategory}
-              
-              {/* {data.map((d) => <Category name={d.name} price={d.price} pic={d.pic_url} />)}  */}
-            
-        
- </div> 
-
- <div className={classes.more}>
-    <button onClick={routeItemsPage} className={classes.btn}><div className={classes.more_a}>shop</div></button>
- </div>
-
-          <div className={classes.Text}>
-     <div className={classes.Text_message}>
-         <div className={classes.Text_words}>
-         askdfjaksdfjakdjf ksdjfaksdjf
-         kfjaskdfjaksdjfa;ksdjfa;skdjf
-         aksdjfaksldjfaksdjfaksdjfkasdjf
-         aksldfjaksldjfkasdjfkasjdfkasdf
-         askdjfkasdjfkasjdfkasjdfklajsdfka
-         sdjfaksdjfkasdjfaksjdfkasjdfka
-         aksdjfaksdfjkasdjfkasjdfkajsdf
-         aksjdfkasjdfkajsdfkjaksldfjlasd
-         akjsdfjasldkfjaksdfjlaksdjfalskdf
-         jkasldfjlaksjdfklasjdflkajsdflkasjdfklaj
-         aksdflkasjdflkajsdlfajsdlfkjalsdkfj
-         kasjdflajsdklfjalskdfjalksdjflaksdjf
-         kajsdflajsldkfjaklsdfjaklsdjfakldf
-         kajsdfklajsdlfjadlkjklfajslfjasdf
-     </div>
-     </div>
- </div>
-         
-              <div className={classes.help_about}>
-              <div className={classes.help} >Help</div>
-              {(currentUser?.user?.roles?.Admin) &&
-                  <div className={classes.about} ><Link href="/SettingsPage">Settings</Link></div>
-                }
-                  </div>
-          
-
-
-
- <div className={classes.Chrisdev_cover}>
-     <div className={classes.Chrisdev}>
-         <a className={classes.Chrisdev_a} href="https://wa.me/qr/DHNPHYO4JBXED1" target="_blank" rel="noreferrer">Developer@</a>
-     </div>
- </div>
+    <ul>
+        <li>
+            <ul>
+                <li className={c.h1}>We get you the style that suits your taste</li>
+                <li className={c.text}>We do our best to satisfy our customers , 
+                    whatever their command requirements  and 
+                    we do not take contracts that are above our 
+                    capacity . 
+                    You product will be complete and excellent as 
+                    you wish for it to be </li>
+                <li>
+                    <ul>
+                        <li className={c.btn}>shop</li>
+                        <li className={c.btn}>make command</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><img src="images/WhatsApp Image 2023-03-19 at 3.10 1.svg" alt="" srcset=""/></li>
+    </ul>
 
 
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <section className={c.homemid}
+              style={{
+                "--backgroundColor": "rgb(35, 14, 35)",
+                "--navtextColor": "white",
+                "--Navtexthighlight": "rgb(121,118,118)",
+                "--btnbackgroundColor":"rgb(48,48,52)",
+                "--borderColor" : "rgba(56, 11, 56, 1)",
+                "--textFontFamily" : "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                "--textsizeNormal": `${15}px`,
+                "--textsizeAverage": `${20}px`,
+                "--boxShadow":" 7px 7px 10px -6px rgba(9, 9, 9, 0.25)"
+            }}
+          >
+
+    <ul>
+        <li className={c.h1}>
+            <div className={c.txt}>What we produce</div>
+            <div className={c.plus_icon}   onClick={OnCreateFormCat}   >+</div>
+                  </li>
+                      <>
+                      <li className={c.item}>
+            <ul>
+                                  {QueryCategory}
+                                  </ul>
+        </li>
+        </>
+    </ul>
+</section>
+
+<section className={c.logo}>
+    <img src="images/Logo.svg" alt="" className={c.logoimage}/>
+</section>
+
+
+<Bottom/>
+</section>
+          
+</>
   )
 }
 

@@ -2,9 +2,10 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCategory } from "../../dataStore/CategorySlice/CategorySlice";
 import { currentLoggedinUser } from "../../dataStore/UserSlice/AuthSlice/AuthSlice";
-import classes from "./HomeQ.module.css"
+import c from "./HomeQ.module.css"
 import UpdateCategory from "./update/UpdateCategory";
-
+import {RiDeleteBin6Line } from "react-icons/ri"
+import {MdOutlineModeEdit } from "react-icons/md"
 
 function Category({ _id, avatar, name }) {
   const currentUser = useSelector(currentLoggedinUser)
@@ -27,10 +28,33 @@ function Category({ _id, avatar, name }) {
     return ( <>
         <UpdateCategory _id={_id} name={name} openform={openupdateform} OnCreateForm={OnUpdateForm} />
 
-<div className={classes.item}>                
-                  <div className={classes.subitem}><img src={avatar} className={classes.b}  onClick={OnUpdateForm}/></div>
-                  <div className={classes.ww} onClick={deleteCat}>{name}</div>
-        </div>
+       
+                <li>
+                    <ul>
+                        <li><img className={c.cap} src={avatar} alt=""/></li>
+                        <li className={c.txt}>
+                            <div className={c.des}>
+                                <div>{name}
+                                    </div>
+                                {/* <div>Price</div> */}
+                            </div>
+                        </li>
+                        {(currentUser?.user?.roles?.Admin || currentUser?.user?.roles?.Editor) &&
+                        <li className={c.del_edit}>
+                            <div className={c.edit_icon} onClick={OnUpdateForm}><MdOutlineModeEdit /></div>
+                            <div className={c.del_icon} onClick={deleteCat}><RiDeleteBin6Line /></div>
+                     
+                        </li>}
+                    </ul>
+                </li>
+            
+                
+     
+     
+
+
+
+      
         </>
      );
 }

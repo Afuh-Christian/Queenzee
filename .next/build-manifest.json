@@ -20,6 +20,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/index.js"
     ],
+    "/UserProfile": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/UserProfile.js"
+    ],
     "/[ItemID]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

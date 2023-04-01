@@ -1,8 +1,10 @@
 import Navbar from '../Components/nav/Navbar'
-import '../styles/globals.css'
+
+import global from "../styles/globals.css"
 
 import { store } from '../dataStore/store'
 import { Provider } from 'react-redux'
+
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -10,6 +12,9 @@ function MyApp({ Component, pageProps }) {
     <Navbar>
       <Component {...pageProps} />
       </Navbar>
+
+      {/* <Navbar/> */}
+      
   </Provider>
   )
   }

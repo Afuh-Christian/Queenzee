@@ -2,12 +2,20 @@
 
 .section{
     height: 690px;
+    display: grid;
+    place-items: center;
     overflow-y: scroll;
     overflow-x: hidden;
+    padding-bottom: 20px;
+}
+
+.section::-webkit-scrollbar{
+    display: none;
 }
 
 .pic{
     height:300px;
+    width: 300px;
     background-color: rgb(32, 11, 32);
     display: flex;
     align-items: center;
@@ -62,10 +70,9 @@
 
 
 .deleteUserbtn{
-    font-size: 20px;
+     font-size: 20px;
     float: right;
     position: relative;
-    bottom : -130px;
-    right : -130px;
-    border-radius: 10px;
+    right: 0;
+    margin-top: 30px;
 }

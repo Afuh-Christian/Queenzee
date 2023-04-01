@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
 import { useState } from "react";
-import classes from "./Nav.module.css"
+import c from "./Nav.module.css"
 import {FaBars, FaTimes} from 'react-icons/fa'
 import Link from "next/link";
 import { useRouter } from 'next/router'
@@ -11,6 +11,7 @@ import { currentLoggedinUser, LogoutThunk, RefreshLogin } from "../../dataStore/
 import { useDispatch, useSelector } from "react-redux";
 import path from "path"
 
+
 function Navbar({ children }) {
     const dispatch = useDispatch()
     useEffect(() => {
@@ -20,19 +21,18 @@ function Navbar({ children }) {
     // Logged in user ... 
     const currentUser = useSelector(currentLoggedinUser)
 
-    const [openform, setForm] = useState(false)
-    const [openformcat, setFormCat] = useState(false)
+  
     const router = useRouter()
     const routeHomepage = () => {
         router.push('/')
-        setFormCat(false)
-        setForm(false)
+        // setFormCat(false)
+        // setForm(false)
     }
 
     const routeLoginpage = () => {
         if (!currentUser.user) router.push('/Login')
-        setFormCat(false)
-        setForm(false)
+        // setFormCat(false)
+        // setForm(false)
     }
     const routeUserProfile = () => {
         if (currentUser.user) router.push('/UserProfile')
@@ -40,26 +40,32 @@ function Navbar({ children }) {
     const Logoutbtn = () => {
         // if (!currentUser.user) router.push('/Login')
         dispatch(LogoutThunk())
-        setFormCat(false)
-        setForm(false)
+        // setFormCat(false)
+        // setForm(false)
     }
+
+
     
     const [active, setActive] = useState(true)
     
     const showNavbar = () => setActive(!active)
   
+    const [active_u, setActive_u] = useState(true)
+    
+    const showNavbar_u = () => setActive_u(!active_u)
+  
     // create ..... 
    
     // http post item .... 
-    const OnCreateForm = () => {
-        setForm(!openform)
-    }
+    // const OnCreateForm = () => {
+    //     setForm(!openform)
+    // }
 
     // http post category .... 
-    const OnCreateFormCat = ()=>{
-        setFormCat(!openformcat)
+    // const OnCreateFormCat = ()=>{
+    //     setFormCat(!openformcat)
         
-    }
+    // }
 
     // console.log(router.pathname.length)
 
@@ -70,105 +76,190 @@ function Navbar({ children }) {
         }
         router.back()
     }
-    
+    console.log(router.pathname)
     return ( 
-        <section className={classes.navbarmom}>
-
-            {
-                (router.pathname.includes("/SettingsPage/UserSettings") || router.pathname.includes("UserProfile")) &&
-
-                <section className={classes.header}>
-                        <div onClick={GoBack} style={{fontSize:40}}>
-                         <TbArrowLeft/>
-                        </div>
-                        </section>
-||
-
-        <section className={classes.header}>
-    <div className={classes.title}>
-        <div className={classes.imgtitle}></div>
-        <div className={classes.titletxt}>Queenzee</div>
-    </div>
-
-    <div className={classes.titleactions}>
-                            <div className={classes.search}></div>
-                            {currentUser?.user && 
-                                
-                            <div className={classes.account}>
-                                       <div className={classes.userimage}><img  onClick={routeUserProfile} src={currentUser.user.imageurl} alt="" style={{borderRadius:50}} /></div>
-                                    <div className={classes.userstatus} onClick={Logoutbtn} >Logout</div>
-                                   
-                                    </div> 
+        <
+      
+>
+            <section className={c.nav}
+              style={{
+                "--backgroundColor": "rgb(35, 14, 35)",
+                "--navtextColor": "white",
+                "--Navtexthighlight": "rgb(121,118,118)",
+                "--btnbackgroundColor":"rgb(48,48,52)",
+                "--borderColor" : "rgba(56, 11, 56, 1)",
+                "--textFontFamily" : "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                "--textsizeNormal": `${15}px`,
+                "--textsizeAverage": `${20}px`,
+                "--boxShadow":" 7px 7px 10px -6px rgba(9, 9, 9, 0.25)"
+            }}
+            
+            >
+<ul>
+    <li className={c.navbarlist}>
+        <ul>
+                            <li
+                            // onClick={routeHomepage}
+                            className={(router.pathname === "/") && c.on_page} ><Link href="/">Home</Link></li>
+            <li  className={(router.pathname === "/Contacts") && c.on_page}>Contacts</li>
+            <li  className={(router.pathname.includes("ItemID")) && c.on_page}><Link href="/Shop">Shop</Link></li>
+                            {currentUser?.user && <li
+                             className={(router.pathname === "/Chat") && c.on_page}>Chat</li>}
+                            {(currentUser?.user?.roles?.Admin) && <li
+                             className={(router.pathname === "/SettingsPage") && c.on_page}><Link href="/SettingsPage">Admin</Link></li>}
+        </ul>
+    </li>
+                    <li className={c.hamberger_icon}
+                  
+                    >
+                        
+                        {
+                            (router.pathname.includes("/SettingsPage/UserSettings") || router.pathname.includes("UserProfile")) &&
+                            <div onClick={GoBack}>
+                                  <TbArrowLeft/>   
+                     </div>  ||
+                            <div
+                            onClick={showNavbar}
+                                >
                             
-                    ||                            <div   className={classes.account}>
-                                <div className={classes.userimage}><img src="images/user.png" alt=""/></div>
-                                    <div  className={classes.userstatus}  onClick={routeLoginpage} >Login</div>
-                                    </div>                          
-    }
-        
-</div>
+                                {active && <FaBars /> || <FaTimes />}
+                            </div>}
+    </li>
+                    <li className={c.title}>
+        <ul>
+            <li>
+                <img src="images/noto-v1_shopping-bags.svg"/>
+            </li>
+            <li className={c.headerp}>
+                <div className={c.header}>Queenzee Designs</div>
+            </li>
+            <li>
+                <img src="images/openmoji_billed-cap.svg"/>
+            </li>
+        </ul>
+    </li>
+                    <li onClick={
+                        showNavbar_u
+                    } className={c.profile}>
+                        {currentUser?.user &&
+                            <img src={ currentUser.user.imageurl } />   ||
+                            <img src="images/mdi_user-circle.svg" />}
+    </li>
+</ul>
+</section>
+            <div  
+                // className={c.slide_menu_active}
+                className={active && c.slide_menu_hide || c.slide_menu_active}
+            style={{
+                "--backgroundColor": "rgb(35, 14, 35)",
+                "--navtextColor": "white",
+                "--Navtexthighlight": "rgb(121,118,118)",
+                "--btnbackgroundColor":"rgb(48,48,52)",
+                "--borderColor" : "rgba(56, 11, 56, 1)",
+                "--textFontFamily" : "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                "--textsizeNormal": `${15}px`,
+                "--textsizeAverage": `${20}px`,
+                "--boxShadow":" 7px 7px 10px -6px rgba(9, 9, 9, 0.25)"
+            }}
+            >
+{/* <ul>
+                    <li 
+                        
+                        className={(router.pathname === "/") && c.on_page}
+                     onClick={routeHomepage}
+                    >Home</li>
+                    <li
+                     className={(router.pathname === "/Contacts") &&c.on_page}>Contacts</li>
+                    <li
+                     className={(router.pathname === "/shop") && c.on_page}>Shop</li>
+                    <li
+                     className={(router.pathname === "/Chat") &&  c.on_page}>Chat</li>
+                    <li
+                     className={(router.pathname === "/Admin") && c.on_page}>Admin</li>
+</ul> */}
+
+<ul>
+                            <li
+                            // onClick={routeHomepage}
+                            className={(router.pathname === "/") && c.on_page}  onClick={showNavbar} ><Link href="/">Home</Link></li>
+            <li  className={(router.pathname === "/Contacts") && c.on_page}>Contacts</li>
+            <li  className={(router.pathname.includes("ItemID")) && c.on_page}  onClick={showNavbar}><Link href="/Shop">Shop</Link></li>
+                            {currentUser?.user && <li
+                             className={(router.pathname === "/Chat") && c.on_page}  onClick={showNavbar}>Chat</li>}
+                            {(currentUser?.user?.roles?.Admin) && <li
+                             className={(router.pathname === "/SettingsPage") && c.on_page}  onClick={showNavbar}><Link href="/SettingsPage">Admin</Link></li>}
+        </ul>
+            </div>
+            <div  
+                // className={c.slide_menu_user}
+                className={active_u && c.slide_menu_user_hide || c.slide_menu_user}
+            style={{
+                "--backgroundColor": "rgb(35, 14, 35)",
+                "--navtextColor": "white",
+                "--Navtexthighlight": "rgb(121,118,118)",
+                "--btnbackgroundColor":"rgb(48,48,52)",
+                "--borderColor" : "rgba(56, 11, 56, 1)",
+                "--textFontFamily" : "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                "--textsizeNormal": `${15}px`,
+                "--textsizeAverage": `${20}px`,
+                "--boxShadow":" 7px 7px 10px -6px rgba(9, 9, 9, 0.25)"
+            }}
+            >
+<ul>
+
+                    {currentUser?.user &&
+                        <>  <li
+                        onClick={() => { routeUserProfile(); showNavbar_u(); }} 
+                    >Edit account</li>
+                      <li
+                            // onClick={Logoutbtn}
+                            onClick={() => { Logoutbtn(); showNavbar_u(); }} 
+                        >Logout</li></>
+                    ||
+                        <>
+                        <li
+                            // onClick={routeLoginpage}
+                         onClick={() => { routeLoginpage(); showNavbar_u(); }} 
+                        >Login</li>
+                    <li
+                      onClick={() => {  showNavbar_u(); }} 
+                        >Sign Up</li></>
+                   }
+                  
+                    
+
+</ul>
+            </div>
+
+
+            <section
+                // className={c.child}
+            >
+                {children}
+                {/* <CreateCategory openform={openformcat} OnCreateForm={OnCreateFormCat}/> */}
+                {/* <CreateItem openform={openform} OnCreateForm={OnCreateForm}/> */}
             </section>
+
+
+
             
+
+
+
+            
+ </>   
+)
 }
 
-<section>
-                {children}
-                <CreateCategory openform={openformcat} OnCreateForm={OnCreateFormCat}/>
-                <CreateItem openform={openform} OnCreateForm={OnCreateForm}/>
-            </section>
-            
-            {!router.pathname.includes("UserSettings") && 
-           <> <section className={classes.tabnavbar}>
-                
-   <div onClick={routeHomepage} className={classes.route}>
-        <div className={classes.imghome}><img  src="images/home.png" alt=""/></div>
-        <div className={classes.txt}>Home</div>
-                </div>
-                {(currentUser?.user?.roles?.Admin || currentUser?.user?.roles?.Editor )  &&
-                <div className={classes.route} onClick={
-                    router.pathname === "/" ? OnCreateFormCat :
-                        (router.pathname !== "/" && router.pathname !== "/Login" && router.pathname !== "/Register")? OnCreateForm : ()=>{} }
-                    // router.pathname === "/Shop" && OnCreateForm ||
-                    
-       
-                    // }else if (router.pathname !== "/" & "/Login" & "/Register") {
-                      
-                    // } 
-    >
-        <div className={classes.imgcreate}><img  src="images/create.png" alt=""/></div>
-    </div>
-            }
-   
-    <div onClick={showNavbar} className={classes.routephone}>
-        <div className={classes.imgphone}><img  src="images/phone.png" alt=""/></div>
-        <div className={classes.txt}>Contact</div>
-    </div>
- </section>
- <div
-            className={active? classes.menu : classes.showmenu} >
-        <div className={classes.exit} onClick={showNavbar}><FaTimes/></div>
-    
-        <div className={classes.li}><a href="#">
-            <div className={classes.imgmomo}><img src="images/momo.png" alt=""/></div>
-            <div className={classes.txt}>+237 671018950</div>
-        </a> </div>
-    
-        <div className={classes.li}><a href="#">
-            <div className={classes.imgwhatsapp}><img src="images/whatsapp.png" alt=""/></div>
-            <div className={classes.txt}>Whatsapp</div>
-        </a></div>
-        <div className={classes.li}><a href="#">
-            <div className={classes.imgfacebook}><img src="images/facebook.png" alt=""/></div>
-            <div className={classes.txt}>Facebook</div>
-        </a></div>
-        <div className={classes.li}><a href="#">
-            <div className={classes.imginstagram}><img src="images/instagram.png" alt=""/></div>
-            <div className={classes.txt}>Instagram</div>
-        </a></div>
-            </div>
-            </>  ||  <section className={classes.tabnavbar}></section>}
-        </section>
-     );
-}
 
 export default Navbar;
+
+
+
+
+
+
+
+
+
+

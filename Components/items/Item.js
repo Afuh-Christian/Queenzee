@@ -2,9 +2,12 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteItemApi, fetchItems } from '../../dataStore/ItemSlice/ItemSlice';
 import { currentLoggedinUser } from '../../dataStore/UserSlice/AuthSlice/AuthSlice';
-import classes from './Items.module.css'
+import c from './Items.module.css'
 import UpdateItem from './update/UpdateItem';
 import UpdateCategory from './update/UpdateItem';
+
+import {RiDeleteBin6Line } from "react-icons/ri"
+import {MdOutlineModeEdit } from "react-icons/md"
 
 
 function OneItem({ itemID_Parent, avatar, name, price }) {
@@ -34,21 +37,28 @@ function OneItem({ itemID_Parent, avatar, name, price }) {
     return ( 
         <>
             <UpdateItem _id={itemID_Parent} avatar={avatar} name={name} price={price} openform={openupdateform} OnCreateForm={OnUpdateForm} />
-            
-        <div className={classes.item}>
-        <div className={classes.img}><img src={avatar} alt=""/></div>
-        <div className={classes.share}>Buy</div> 
-        <div className={classes.itemdescription}>
-                <div className={classes.name}>{name}</div>
-       <div className={classes.price}>{price}frs</div> 
-                </div>
-                {(currentUser?.user?.roles?.Admin || currentUser?.user?.roles?.Editor) &&
-                    <div className={classes.btn}>
-                        <button className={classes.btn1} onClick={OnUpdateForm}>Update</button>
-                        <button className={classes.btn2} onClick={deleteitem}>Delete</button>
-                    </div>
-                }
-                </div> </>
+            <li>
+                <ul>
+                    <li><img className={c.cap} src={avatar} alt=""/></li>
+                    <li className={c.txt}>
+                        <div className={c.des}>
+                            <div>
+                              {name}
+                            </div>
+                            <div>{price} frs</div>
+                        </div>
+                    </li>
+                    {(currentUser?.user?.roles?.Admin || currentUser?.user?.roles?.Editor) &&
+                        <li className={c.del_edit}>
+                            <div className={c.edit_icon} onClick={OnUpdateForm}><MdOutlineModeEdit /></div>
+                            <div className={c.del_icon} onClick={deleteitem}><RiDeleteBin6Line /></div>
+                     
+                        </li>}
+                </ul>
+            </li>
+  
+      
+       </>
      );
 }
 
