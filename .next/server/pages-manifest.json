@@ -2,8 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/api/routes/categoryroute/category": "pages/api/routes/categoryroute/category.js",
   "/": "pages/index.js",
   "/api/routes/Auth/refreshtoken": "pages/api/routes/Auth/refreshtoken.js",
-  "/UserProfile": "pages/UserProfile.js",
-  "/[ItemID]": "pages/[ItemID].js"
+  "/[ItemID]": "pages/[ItemID].js",
+  "/api/routes/itemroute/items": "pages/api/routes/itemroute/items.js"
 }

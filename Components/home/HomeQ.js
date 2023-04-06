@@ -124,7 +124,11 @@ function HomeQ() {
                     you wish for it to be </li>
                 <li>
                     <ul>
-                        <li className={c.btn}>shop</li>
+                        <li className={c.btn}
+                        onClick={
+                            ()=>router.push('/Shop')
+                        }
+                        >shop</li>
                         <li className={c.btn}>make command</li>
                     </ul>
                 </li>

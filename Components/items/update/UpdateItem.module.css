@@ -8,6 +8,8 @@
 }
 
 .modalContainer_A {
+  background-color: white;
+  color:black;
     max-width: 600px;
     height: 350px;
     width: 80%;
@@ -40,6 +42,8 @@
   }
 
   .name_c{
+    background-color: white;
+    color:black;
     width: 200px;
     height: 30px;
     margin-top: 30px;
@@ -52,6 +56,8 @@
 }
 
   .price_c{
+    background-color: white;
+    color:black;
     width: 200px;
     height: 30px;
     font-size: 20px;
@@ -66,6 +72,8 @@
 
  .btn_c{
     float: right;
+   
+    color:black;
     width: 50px;
     height: 30px;
     font-size: 20px;
