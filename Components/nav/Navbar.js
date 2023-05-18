@@ -34,6 +34,12 @@ function Navbar({ children }) {
         // setFormCat(false)
         // setForm(false)
     }
+
+    const routeSignUppage = () => {
+        if (!currentUser.user) router.push('/Register')
+        // setFormCat(false)
+        // setForm(false)
+    }
     const routeUserProfile = () => {
         if (currentUser.user) router.push('/UserProfile')
     }
@@ -101,10 +107,10 @@ function Navbar({ children }) {
                             <li
                             // onClick={routeHomepage}
                             className={(router.pathname === "/") && c.on_page} ><Link href="/">Home</Link></li>
-            <li  className={(router.pathname === "/Contacts") && c.on_page}>Contacts</li>
+            {/* <li  className={(router.pathname === "/Contacts") && c.on_page}>Contacts</li> */}
             <li  className={(router.pathname.includes("ItemID")) && c.on_page}><Link href="/Shop">Shop</Link></li>
-                            {currentUser?.user && <li
-                             className={(router.pathname === "/Chat") && c.on_page}>Chat</li>}
+                            {/* {currentUser?.user && <li
+                             className={(router.pathname === "/Chat") && c.on_page}>Chat</li>} */}
                             {(currentUser?.user?.roles?.Admin) && <li
                              className={(router.pathname === "/SettingsPage") && c.on_page}><Link href="/SettingsPage">Admin</Link></li>}
         </ul>
@@ -182,10 +188,10 @@ function Navbar({ children }) {
                             <li
                             // onClick={routeHomepage}
                             className={(router.pathname === "/") && c.on_page}  onClick={showNavbar} ><Link href="/">Home</Link></li>
-            <li  className={(router.pathname === "/Contacts") && c.on_page}>Contacts</li>
+            {/* <li  className={(router.pathname === "/Contacts") && c.on_page}>Contacts</li> */}
             <li  className={(router.pathname.includes("ItemID")) && c.on_page}  onClick={showNavbar}><Link href="/Shop">Shop</Link></li>
-                            {currentUser?.user && <li
-                             className={(router.pathname === "/Chat") && c.on_page}  onClick={showNavbar}>Chat</li>}
+                            {/* {currentUser?.user && <li
+                             className={(router.pathname === "/Chat") && c.on_page}  onClick={showNavbar}>Chat</li>} */}
                             {(currentUser?.user?.roles?.Admin) && <li
                              className={(router.pathname === "/SettingsPage") && c.on_page}  onClick={showNavbar}><Link href="/SettingsPage">Admin</Link></li>}
         </ul>
@@ -222,7 +228,7 @@ function Navbar({ children }) {
                          onClick={() => { routeLoginpage(); showNavbar_u(); }} 
                         >Login</li>
                     <li
-                      onClick={() => {  showNavbar_u(); }} 
+                            onClick={() => { routeSignUppage(); showNavbar_u(); }} 
                         >Sign Up</li></>
                    }
                   
