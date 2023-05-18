@@ -11,6 +11,7 @@ import { nanoid } from "@reduxjs/toolkit"
 import { currentLoggedinUser } from "../../dataStore/UserSlice/AuthSlice/AuthSlice"
 import Bottom from "../bottom/Bottom"
 import CreateCategory from "./create/CreateCategory"
+import Image from "next/image"
 
 
 
@@ -134,7 +135,10 @@ function HomeQ() {
                 </li>
             </ul>
         </li>
-        <li><img src="images/WhatsApp Image 2023-03-19 at 3.10 1.svg" alt="" srcset=""/></li>
+                      <li><Image
+                          height={400}
+                            width={400}
+                          src="/images/WhatsApp Image 2023-03-19 at 3.10 1.svg" alt="nothing" srcset="" /></li>
     </ul>
 
 
@@ -186,7 +190,11 @@ function HomeQ() {
 </section>
 
 <section className={c.logo}>
-    <img src="images/Logo.svg" alt="" className={c.logoimage}/>
+                  <Image
+                      height={200}
+                      width={200}
+                      src="/images/Logo.svg" alt="" className={c.logoimage}
+                  />
 </section>
 
 

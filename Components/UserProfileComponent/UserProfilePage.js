@@ -3,6 +3,7 @@ import classes from "./UserPorfile.module.css"
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { currentLoggedinUser, EditAccountThunk } from "../../dataStore/UserSlice/AuthSlice/AuthSlice"
+import Image from "next/image"
 
 function UserProfilePage() {
     const currentUser = useSelector(currentLoggedinUser)
@@ -64,7 +65,12 @@ function UserProfilePage() {
 
     return (
         <div className={classes.div}>
-            <div className={classes.image}><img src={currentUser?.user?.imageurl}/></div>
+            <div className={classes.image}><Image
+                height={300}
+                width={300}
+                alt="hello"
+                src={currentUser?.user?.imageurl}
+            /></div>
             <div className={classes.form}>
                 <div>
                     <input type="file" name="imageurl" onChange={updateform}></input>

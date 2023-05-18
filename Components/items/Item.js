@@ -8,6 +8,7 @@ import UpdateCategory from './update/UpdateItem';
 
 import {RiDeleteBin6Line } from "react-icons/ri"
 import {MdOutlineModeEdit } from "react-icons/md"
+import Image from 'next/image';
 
 
 function OneItem({ itemID_Parent, avatar, name, price }) {
@@ -39,7 +40,11 @@ function OneItem({ itemID_Parent, avatar, name, price }) {
             <UpdateItem _id={itemID_Parent} avatar={avatar} name={name} price={price} openform={openupdateform} OnCreateForm={OnUpdateForm} />
             <li>
                 <ul>
-                    <li><img className={c.cap} src={avatar} alt=""/></li>
+                    <li><Image
+                        width={200}
+                        height={200}
+                        src={avatar} alt="" />
+                    </li>
                     <li className={c.txt}>
                         <div className={c.des}>
                             <div>
@@ -53,7 +58,8 @@ function OneItem({ itemID_Parent, avatar, name, price }) {
                             <div className={c.edit_icon} onClick={OnUpdateForm}><MdOutlineModeEdit /></div>
                             <div className={c.del_icon} onClick={deleteitem}><RiDeleteBin6Line /></div>
                      
-                        </li>}
+                        </li>
+                    }
                 </ul>
             </li>
   

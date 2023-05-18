@@ -24,7 +24,7 @@ function Register() {
              router.push("/")
         }
        
-    }, [currentUser])
+    }, [currentUser, router])
 
     function OnInput(e) {
         const { value, name, files } = e.target

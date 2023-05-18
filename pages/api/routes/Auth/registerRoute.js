@@ -48,7 +48,8 @@ handler.post(async (req, res) => {
         try {
             const encryptpassword = await bcrypt.hash(password, 10)
             const allusers = await UserModel.find()
-            let url = "http://localhost:3000/"
+            // let url = "http://localhost:3000/"
+            let url = "/"
             let parentpath = "uploads/Users/"
             let filename = req.file.filename
             if (allusers.length === 0) {

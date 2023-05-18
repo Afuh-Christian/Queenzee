@@ -6,6 +6,7 @@ import c from "./HomeQ.module.css"
 import UpdateCategory from "./update/UpdateCategory";
 import {RiDeleteBin6Line } from "react-icons/ri"
 import {MdOutlineModeEdit } from "react-icons/md"
+import Image from "next/image";
 
 function Category({ _id, avatar, name }) {
   const currentUser = useSelector(currentLoggedinUser)
@@ -31,7 +32,10 @@ function Category({ _id, avatar, name }) {
        
                 <li>
                     <ul>
-                        <li><img className={c.cap} src={avatar} alt=""/></li>
+                <li><Image
+                    width={200}
+                    height={200}
+                    className={c.cap} src={avatar} alt="" /></li>
                         <li className={c.txt}>
                             <div className={c.des}>
                                 <div>{name}

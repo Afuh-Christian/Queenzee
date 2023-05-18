@@ -17,11 +17,11 @@
     justify-content: space-between;
 }
 
-.pic > img {
+.pic > .img {
     height: 100px;
     width: 100px;
     border-radius: 50%;
-    margin-left: 30px;
+    overflow: hidden;
 }
 
 .name {

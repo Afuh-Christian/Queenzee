@@ -8,6 +8,7 @@ import CreateItem from './create/CreateItem';
 import OneItem from './Item';
 import c from './Items.module.css'
 import { BsPlusSquare } from 'react-icons/bs'
+import Image from 'next/image';
 
 function ItemsPage() {
   const [openform, setForm] = useState(false)
@@ -101,7 +102,12 @@ if(itemStatus === "loading"){
                   "--boxShadow":" 7px 7px 10px -6px rgba(9, 9, 9, 0.25)"
               }}
         >
-<img src="images/Logo.svg" alt="" className={c.logoimage}/>
+            <Image
+              height={200}
+              width={200}
+              src="/images/Logo.svg"
+              alt=""
+            />
           </section>
       
         <Bottom />

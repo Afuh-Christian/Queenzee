@@ -19,7 +19,7 @@ function Login() {
             router.push("/")
         }
 
-    }, [currentUser])
+    }, [currentUser, router])
 
 
     function InputForm(e) {
@@ -60,7 +60,7 @@ function Login() {
                     </div>
 
                     <div className={loginstyle.login}>
-                        <p>Don't have an account yet :  <Link href="/Register">Sign Up</Link></p>
+                        <p>Do not have an account yet :  <Link href="/Register">Sign Up</Link></p>
                     </div>
                 </form>
 

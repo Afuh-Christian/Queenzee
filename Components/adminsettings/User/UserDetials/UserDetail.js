@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getCurrentUser, MakeEditorApi, setInitialUser } from '../../../../dataStore/AdminSlice/UserConfigSlice'
 import { currentLoggedinUser } from '../../../../dataStore/UserSlice/AuthSlice/AuthSlice'
 import userclasses from './UserDetial.module.css'
+import Image from 'next/image'
 
 
 function UserDetail() {
@@ -24,7 +25,7 @@ function UserDetail() {
       })
         )
       }
-    }, [user?._id])
+    }, [dispatch, user._id, user?.username])
   
 
   const [formobject, setformobject] = useState({
@@ -71,7 +72,11 @@ function UserDetail() {
 
       <>
       <section className={userclasses.section}>
-        <div className={userclasses.pic}><img src={user.imageurl}/></div>
+        <div className={userclasses.pic}><Image
+          alt='' 
+          height={300}
+          width={300}
+          src={user.imageurl} /></div>
         <div className={userclasses.name}>{user.username}  </div>
         <div className={userclasses.email}>{user.email}  </div>
         {/* <div className={userclasses.email}>{user._id} </div>

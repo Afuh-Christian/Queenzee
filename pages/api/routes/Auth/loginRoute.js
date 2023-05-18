@@ -1,6 +1,6 @@
 
 import UserModel from "../../models/UserModel"
-import CookieMiddleware from "./CookieMiddleware"
+// import CookieMiddleware from "./CookieMiddleware"
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 const bcrypt = require('bcryptjs')

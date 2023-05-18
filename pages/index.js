@@ -1,14 +1,13 @@
 
-import UserDetail from "../Components/adminsettings/User/UserDetials/UserDetail";
-import UserSettings from "../Components/adminsettings/User/UserSettings";
-import ImageUpload from "../Components/fileuploadtut/ImageUpload";
+// import UserDetail from "../Components/adminsettings/User/UserDetials/UserDetail";
+// import UserSettings from "../Components/adminsettings/User/UserSettings";
+// import ImageUpload from "../Components/fileuploadtut/ImageUpload";
 import HomeQ from "../Components/home/HomeQ";
-import ItemsPage from "../Components/items/ItemsPage";
-import Login from "../Components/login/login";
-import Allusers from "../Components/queentest/Allusers";
+// import ItemsPage from "../Components/items/ItemsPage";
+// import Login from "../Components/login/login";
+// import Allusers from "../Components/queentest/Allusers";
 
-import Register from "../Components/register/register";
-import Modal_window from "../Modal_window/Modal_window";
+// import Modal_window from "../Modal_window/Modal_window";
 
 export default function Home() {
 

@@ -36,7 +36,7 @@ let upload = multer({
 let uploadfile = upload.single("Itemfile")
 Handler.use(uploadfile)
 Handler.post(async (req, res) => {
-    let url = "http://localhost:3000/"
+    let url = "/"
     let parentpath = "uploads/Items/"
     let filename = req.file.filename
 
@@ -97,7 +97,7 @@ Handler.put(async (req, res) => {
     //set the values of this new item object ..
   
         
-    let url = "http://localhost:3000/"
+    let url = "/"
     let parentpath = "uploads/Items/"
     let filename = req.file?.filename ? req.file.filename : null 
         

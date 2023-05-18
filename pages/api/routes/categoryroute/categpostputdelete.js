@@ -48,7 +48,7 @@ Handler.post(async (req, res) => {
     //     image : url + parentpath + filename 
     // })
     //url + parentpath +
-    let url = "http://localhost:3000/"
+    let url = "/"
     let parentpath = "uploads/category/"
     let filename = req.file.filename
 
@@ -127,7 +127,7 @@ Handler.put(async (req, res) => {
     // }
 
     //set the values of this new Category object .. 
-    let url = "http://localhost:3000/"
+    let url = "/"
     let parentpath = "uploads/category/"
     let filename = req.file?.filename ? req.file.filename : null 
 

@@ -10,13 +10,14 @@ import {TbArrowLeft} from "react-icons/tb"
 import { currentLoggedinUser, LogoutThunk, RefreshLogin } from "../../dataStore/UserSlice/AuthSlice/AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
 import path from "path"
+import Image from "next/image";
 
 
 function Navbar({ children }) {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(RefreshLogin())
-    }, [])
+    }, [dispatch])
 
     // Logged in user ... 
     const currentUser = useSelector(currentLoggedinUser)
@@ -84,9 +85,7 @@ function Navbar({ children }) {
     }
     console.log(router.pathname)
     return ( 
-        <
-      
->
+        <>
             <section className={c.nav}
               style={{
                 "--backgroundColor": "rgb(35, 14, 35)",
@@ -134,22 +133,49 @@ function Navbar({ children }) {
                     <li className={c.title}>
         <ul>
             <li>
-                <img src="images/noto-v1_shopping-bags.svg"/>
+                        
+            <Image
+            src="/images/noto-v1_shopping-bags.svg"
+            alt="Next.js Logo"
+            width={30}
+            height={25}
+            priority
+                                />
             </li>
             <li className={c.headerp}>
                 <div className={c.header}>Queenzee Designs</div>
             </li>
             <li>
-                <img src="images/openmoji_billed-cap.svg"/>
+                <Image  
+                src="/images/openmoji_billed-cap.svg"
+                 alt="Next.js Logo"
+            width={30}
+            height={25}
+            priority
+                />
             </li>
         </ul>
     </li>
                     <li onClick={
                         showNavbar_u
                     } className={c.profile}>
-                        {currentUser?.user &&
-                            <img src={ currentUser.user.imageurl } />   ||
-                            <img src="images/mdi_user-circle.svg" />}
+                         <Image
+                            alt="slow internet"
+                            height={45}
+                            width={50}
+                             src={currentUser?.user && currentUser.user.imageurl ||"/images/mdi_user-circle.svg"}/>
+                      
+                        {/* {currentUser?.user &&
+                            <Image
+                            alt="slow internet"
+                            height={45}
+                        width={45}
+                                className={c.img} src={currentUser.user.imageurl} /> ||
+                            <Image
+                            alt="slow internet"
+                            height={45}
+                        width={45}
+                                className={c.img} src="/images/mdi_user-circle.svg" />} */}
     </li>
 </ul>
 </section>
@@ -231,9 +257,6 @@ function Navbar({ children }) {
                             onClick={() => { routeSignUppage(); showNavbar_u(); }} 
                         >Sign Up</li></>
                    }
-                  
-                    
-
 </ul>
             </div>
 
@@ -246,13 +269,7 @@ function Navbar({ children }) {
                 {/* <CreateItem openform={openform} OnCreateForm={OnCreateForm}/> */}
             </section>
 
-
-
-            
-
-
-
-            
+         
  </>   
 )
 }

@@ -10,7 +10,8 @@ import classes from  "./UpdateItem.module.css"
  function UpdateItem({ _id ,name, price ,avatar,  openform,OnCreateForm}) {
 
        // Logged in user ... 
-       const currentUser = useSelector(currentLoggedinUser)
+   const currentUser = useSelector(currentLoggedinUser)
+   const dispatch = useDispatch()
     
     const [formobject, setFormPost] = useState({
       _id:_id,
@@ -39,7 +40,7 @@ import classes from  "./UpdateItem.module.css"
  })
 }
 
- const dispatch = useDispatch()
+ 
 
    async function OnSForm() {
     
