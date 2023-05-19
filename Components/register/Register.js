@@ -3,12 +3,12 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { currentLoggedinUser, RefreshLogin } from "../../dataStore/UserSlice/AuthSlice/AuthSlice";
-import { postUsers } from "../../dataStore/UserSlice/UserSlice";
+import { currentLoggedinUser, postUsers, RefreshLogin } from "../../dataStore/UserSlice/AuthSlice/AuthSlice";
+
 import registerstyle from "./Register.module.css"
 
 
-function Register() {
+function RegisterPage() {
     const router = useRouter()
     const currentUser = useSelector(currentLoggedinUser)
     const dispatch = useDispatch()
@@ -106,5 +106,5 @@ function Register() {
      );
 }
 
-export default Register
+export default RegisterPage
 

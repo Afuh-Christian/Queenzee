@@ -84,8 +84,7 @@ function UserProfilePage() {
 
                 
                 <button onClick={submitform}>save</button>
-                {formobject.username}
-                {formobject.email}
+               
                
             </div>
 

@@ -1,10 +1,12 @@
-import Register from "../../Components/register/Register";
+import React from 'react'
+import RegisterPage from '../../Components/register/Register'
 
-
-function RegisterPage() {
-    return ( 
-        <Register/>
-     );
+function index() {
+  return (
+    <>
+    <RegisterPage/>
+      </>
+  )
 }
 
-export default RegisterPage;
+export default index
