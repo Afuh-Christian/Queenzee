@@ -143,7 +143,7 @@ function Navbar({ children }) {
                                 />
             </li>
             <li className={c.headerp}>
-                <div className={c.header}>Queenzee Designs</div>
+                <div className={c.header}>Queenzee Design</div>
             </li>
             <li>
                 <Image  
