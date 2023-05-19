@@ -131,7 +131,7 @@ export const CategorySlice = createSlice({
               if(action.payload?.status === 201){
               state.categoryApi =[...state.categoryApi, action.payload?.data] 
               } else {
-                  alert("conflict ...")
+                  alert(action.payload?.status)
           }
               
             })

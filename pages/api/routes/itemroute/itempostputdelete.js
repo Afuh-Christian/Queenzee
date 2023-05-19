@@ -123,8 +123,6 @@ Handler.put(async (req, res) => {
     const listitems = await Item.find()
       return  res.status(200).json(listitems)
     // filter out the item and replace it ...
-
-
     }
 
     // console.log(req.body)

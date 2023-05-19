@@ -69,6 +69,10 @@ export const putItemApi = createAsyncThunk("posts/putItemApi",async (initialPost
 
 
 
+
+
+
+
 const deletepath = "/api/routes/itemroute/deleteitem/"
 //http Delete
 export const deleteItemApi = createAsyncThunk("posts/deleteItemApi", async (initialPost) => {
@@ -136,7 +140,7 @@ export const ItemSlice = createSlice({
                 state.itemApi = data
                 console.log(status)
                 } else {
-                    alert("conflict ...")
+                    alert(status)
             }
                 
                 

@@ -2,7 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/SettingsPage/UserSettings/[UserID]": "pages/SettingsPage/UserSettings/[UserID].js",
-  "/api/routes/itemroute/items": "pages/api/routes/itemroute/items.js",
-  "/[ItemID]": "pages/[ItemID].js"
+  "/": "pages/index.js"
 }

@@ -15,15 +15,10 @@
   ],
   "rootMainFiles": [],
   "pages": {
-    "/SettingsPage/UserSettings/[UserID]": [
+    "/": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/SettingsPage/UserSettings/[UserID].js"
-    ],
-    "/[ItemID]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/[ItemID].js"
+      "static/chunks/pages/index.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
