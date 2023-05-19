@@ -1,28 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
+import { postUsers } from "../UserSlice";
 
 
 
-// register user .... 
-export const postUsers = createAsyncThunk("posts/postUsers", async (initialPost) => {
-  
-    try {
-        const res = await axios.post("/api/routes/Auth/registerRoute/", initialPost,
-    {
-        headers:{
-            'accept': 'application/json',
-            'Accept-Language': 'en-US,en;q=0.8',
-            'Content-Type': "multipart/form-data",
-            
-        }
-        })
-
-        return res.data
-    } catch (err) {
-        console.log(err.message)
-    } 
-})
 
 // Login User .Manully..... 
 export const LoginUserThunk = createAsyncThunk("posts/LoginUserThunk", async (initialpost) => {

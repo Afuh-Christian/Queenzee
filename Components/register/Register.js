@@ -3,9 +3,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { currentLoggedinUser, postUsers, RefreshLogin } from "../../dataStore/UserSlice/AuthSlice/AuthSlice";
+import { currentLoggedinUser, RefreshLogin } from "../../dataStore/UserSlice/AuthSlice/AuthSlice";
 
 import registerstyle from "./Register.module.css"
+import { postUsers } from "../../dataStore/UserSlice/UserSlice";
 
 
 function RegisterPage() {
@@ -64,7 +65,6 @@ function RegisterPage() {
         // await dispatch(RefreshLogin())
     
     }
-
     return ( 
         
      <section className={registerstyle.section}>
