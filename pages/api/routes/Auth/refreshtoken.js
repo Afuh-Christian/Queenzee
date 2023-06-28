@@ -30,7 +30,7 @@ async function Handler(req, res) {
 //    console.log(foundUser.refreshToken)
 
             // const roles = Object.values(foundUser.roles)
-            const accessToken = jwt.sign(
+    const accessToken = jwt.sign(
                 {
                    "UserInfo" : {
                     "_id" : foundUser._id,

@@ -23,7 +23,7 @@ let storage = multer.diskStorage({
         cb(null , path.join(process.cwd() , "public" , "uploads" , "Users"))
     },
     filename: (req, file, cb) => {
-        cb(null ,dataUser + file.originalname )
+        cb(null , dataUser + file.originalname )
     }
 })
 
